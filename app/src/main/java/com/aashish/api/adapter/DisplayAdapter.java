@@ -14,36 +14,36 @@ import com.aashish.api.model.Employee;
 
 import java.util.List;
 
-public class DashAdapter extends RecyclerView.Adapter<DashAdapter.EmployeeViewHolder > {
+public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.EmployeeViewHolder > {
     Context context;
-    List<Employee> show_employees;
+    List<Employee> display_employees;
 
-    public DashAdapter(Context context, List<Employee> show_employees) {
+    public DisplayAdapter(Context context, List<Employee> display_employees) {
         this.context = context;
-        this.show_employees = show_employees;
+        this.display_employees = display_employees;
     }
 
     @NonNull
     @Override
-    public DashAdapter.EmployeeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_dash_adapter, parent, false);
+    public DisplayAdapter.EmployeeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_display_adapter, parent, false);
         return new EmployeeViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull EmployeeViewHolder holder, int position) {
 
-        final Employee se = show_employees.get(position);
-        holder.txtid.append(String.valueOf(se.getId()));
-        holder.txtname.append(se.getEmployee_name());
-        holder.txtsalary.append(String.valueOf(se.getEmployee_salary()));
-        holder.txtage.append(String.valueOf(se.getEmployee_age()));
+        final Employee d = display_employees.get(position);
+        holder.txtid.append(String.valueOf(d.getId()));
+        holder.txtname.append(d.getEmployee_name());
+        holder.txtsalary.append(String.valueOf(d.getEmployee_salary()));
+        holder.txtage.append(String.valueOf(d.getEmployee_age()));
     }
 
 
     @Override
     public int getItemCount() {
-        return show_employees.size();
+        return display_employees.size();
     }
 
     public class EmployeeViewHolder extends RecyclerView.ViewHolder {
